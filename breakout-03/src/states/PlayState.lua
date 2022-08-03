@@ -11,9 +11,15 @@ PlayState = Class{ __includes = BaseState }
 
 -- initializes a PlayState object with the right attributes
 function PlayState:init()
-
+	-- init Paddle
 	self.paddle = Paddle()
+
+	-- init Ball
 	self.ball = Ball( 1 )
+
+	-- init Ball
+	self.bricks = LevelMaker.createMap()
+
 	self.paused = false
 
 end
@@ -40,10 +46,19 @@ function PlayState:update( dt )
 
 		-- update Ball
 		self.ball:update( dt )
+		-- detect Ball collision with the Paddle
 		if self.ball:collides( self.paddle ) then
 
 			self.ball.dy = -self.ball.dy
 			gSounds[ 'paddle-hit' ]:play()
+		end
+
+		-- detect Ball collision with all the Bricks
+		for _, brick in pairs( self.bricks ) do
+
+			if brick.inPlay and self.ball:collides( brick ) then
+				brick:hit()
+			end
 		end
 	end
 
@@ -55,9 +70,16 @@ end
 
 -- draws a PlayState object to the screen
 function PlayState:render()
-
+	-- render Paddle
 	self.paddle:render()
+
+	-- render Ball
 	self.ball:render()
+
+	-- render Bricks
+	for _, brick in pairs( self.bricks ) do
+		brick:render()
+	end
 
 	if self.paused then
 		love.graphics.setFont( gFonts[ 'large' ] )

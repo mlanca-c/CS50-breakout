@@ -15,11 +15,20 @@ push = require 'lib/push'
 -- source: https://github.com/vrld/hump/blob/master/class.lua
 Class = require 'lib/class'
 
+-- the rectangular entity the player controls, which deflects the ball
 require 'src/Paddle'
+
+-- the ball that travels around, breaking bricks and triggering lives lost
 require 'src/Ball'
+
+-- the entities in our game map that give us points when we collide with them
+require 'src/Brick'
 
 -- constants.lua file contains most of the game constant variables
 require 'src/constants'
+
+-- a class used to generate our brick layouts (levels)
+require 'src/LevelMaker'
 
 -- utility functions, mainly for splitting our sprite sheet into various Quads
 -- of differing sizes for paddles, balls, bricks, etc.

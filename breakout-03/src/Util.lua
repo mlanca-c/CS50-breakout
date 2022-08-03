@@ -16,8 +16,8 @@ function GenerateQuads( atlas, tilewidth, tileheight )
 	local counter = 1
 	local spriteSheet = {}
 
-	for y = 1, sheetHeight - 1 do
-		for x = 1, sheetWidth - 1 do
+	for y = 0, sheetHeight - 1 do
+		for x = 0, sheetWidth - 1 do
 			spriteSheet[ counter ] = love.graphics.newQuad(
 				-- coordinates
 				x * tilewidth, y * tileheight,
@@ -37,13 +37,13 @@ end
 -- source: https://stackoverflow.com/questions/24821045/does-lua-have-something-like-pythons-slice
 function table.slice( tbl, first, last, step )
 
-	local sliced = {}
+    local sliced = {}
 
-	for i = first or 1,last or #tbl, step or 1 do
-		sliced[ #sliced+1 ] = tbl[ i ]
-	end
+    for i = first or 1, last or #tbl, step or 1 do
+      sliced[ #sliced + 1 ] = tbl[ i ]
+    end
 
-	return sliced
+    return sliced
 
 end
 
@@ -151,4 +151,9 @@ function GenerateQuadsBalls( atlas )
 
 	return quads
 
+end
+
+-- pieces out the Bricks from atlas
+function GenerateQuadsBricks( atlas )
+	return table.slice( GenerateQuads( atlas, 32, 16 ), 1, 21 )
 end
