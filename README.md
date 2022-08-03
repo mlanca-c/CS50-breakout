@@ -8,6 +8,9 @@
  
 # Documentation
 
+### breakout-00 "The Day-0 Update"
+ * breakout-00 displays the main screen and allows the user to toggle between the “Start” and “High Score” options.
+
 # Cloning
 
  ```
