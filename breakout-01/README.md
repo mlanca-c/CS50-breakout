@@ -1,4 +1,4 @@
-## breakout-00 "The Day-0 Update"
+## breakout-01 "The Quad Update"
 
  <small description of project>
 
@@ -8,18 +8,18 @@
  
 # Documentation
 
- * breakout-00 displays the main screen and allows the user to toggle between the “Start” and “High Score” options.
+ * breakout-01 takes advantage of Sprite Sheets in order to render a Paddle sprite during PlayState.
 
 # Cloning
 
  ```
  git clone git@github.com:mlanca-c/CS50-breakout.git
  cd CS50-breakout
- git checkout breakout-00
+ git checkout breakout-01
  ```
  
 # Compiling
  
  ```
- love breakout-00
+ love breakout-01
  ```
