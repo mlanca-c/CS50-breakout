@@ -13,6 +13,7 @@ PlayState = Class{ __includes = BaseState }
 function PlayState:init()
 
 	self.paddle = Paddle()
+	self.ball = Ball( 1 )
 	self.paused = false
 
 end
@@ -32,9 +33,18 @@ function PlayState:update( dt )
 
 	end
 
-	-- update Paddle
+	-- update game if not paused
 	if not self.paused then
+		-- update Paddle
 		self.paddle:update( dt )
+
+		-- update Ball
+		self.ball:update( dt )
+		if self.ball:collides( self.paddle ) then
+
+			self.ball.dy = -self.ball.dy
+			gSounds[ 'paddle-hit' ]:play()
+		end
 	end
 
 	-- toggle to start state
@@ -47,6 +57,7 @@ end
 function PlayState:render()
 
 	self.paddle:render()
+	self.ball:render()
 
 	if self.paused then
 		love.graphics.setFont( gFonts[ 'large' ] )

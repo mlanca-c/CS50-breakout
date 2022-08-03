@@ -16,6 +16,7 @@ push = require 'lib/push'
 Class = require 'lib/class'
 
 require 'src/Paddle'
+require 'src/Ball'
 
 -- constants.lua file contains most of the game constant variables
 require 'src/constants'
