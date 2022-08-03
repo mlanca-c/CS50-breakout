@@ -15,8 +15,14 @@ push = require 'lib/push'
 -- source: https://github.com/vrld/hump/blob/master/class.lua
 Class = require 'lib/class'
 
+require 'src/Paddle'
+
 -- constants.lua file contains most of the game constant variables
 require 'src/constants'
+
+-- utility functions, mainly for splitting our sprite sheet into various Quads
+-- of differing sizes for paddles, balls, bricks, etc.
+require 'src/Util'
 
 -- Game State Machine Class that allows us to toggle in between game states
 require 'src/StateMachine'
@@ -24,3 +30,4 @@ require 'src/StateMachine'
 -- Each Game State
 require 'src/states/BaseState'
 require 'src/states/StartState'
+require 'src/states/PlayState'

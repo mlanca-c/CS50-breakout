@@ -27,8 +27,16 @@ function love.load()
 	-- setting up initial font
 	love.graphics.setFont( gFonts[ 'small' ] )
 
+	gTextures = {
+		[ 'background' ] = love.graphics.newImage( 'graphics/background.png' ),
+        [ 'main' ] = love.graphics.newImage( 'graphics/breakout.png' ),
+        [ 'arrows' ] = love.graphics.newImage( 'graphics/arrows.png' ),
+        [ 'hearts' ] = love.graphics.newImage( 'graphics/hearts.png' ),
+        [ 'particle' ] = love.graphics.newImage( 'graphics/particle.png' )
+	}
+
 	gFrames = {
-		[ 'background' ] = love.graphics.newImage( 'graphics/background.png' )
+		[ 'paddles' ] = GenerateQuadsPaddles( gTextures[ 'main' ] )
 	}
 
 	push:setupScreen(
@@ -69,7 +77,8 @@ function love.load()
 
 	-- initializing Game State Machine
 	gStateMachine = StateMachine {
-		[ 'start' ] = function() return StartState() end
+		[ 'start' ] = function() return StartState() end,
+		[ 'play' ] = function() return PlayState() end
 	}
 	-- setting up current state to StartState()
 	gStateMachine:change( 'start' )
@@ -100,12 +109,13 @@ function love.draw()
 	-- This image will appear in every state
 
 	-- background dimensions
-	local backgroundWidth = gFrames[ 'background' ]:getWidth()
-	local backgroundHeight = gFrames[ 'background' ]:getHeight()
+	local backgroundWidth = gTextures[ 'background' ]:getWidth()
+	local backgroundHeight = gTextures[ 'background' ]:getHeight()
+
 
 	love.graphics.draw(
 		-- image
-		gFrames[ 'background' ],
+		gTextures[ 'background' ],
 		-- image starting coordinates
 		0, 0,
 		-- image rotation
@@ -124,15 +134,9 @@ function love.draw()
 end
 
 function love.keypressed( key )
-
 	-- inserting pressed key in keysPressed table
 	love.keyboard.keysPressed[ key ] = true
 
-	-- handling escape key
-	if key == 'escape' then
-		-- quitting program
-		love.event.quit()
-	end
 end
 
 function love.keyboard.wasPressed( key )
