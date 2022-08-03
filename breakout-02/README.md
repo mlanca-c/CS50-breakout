@@ -15,11 +15,11 @@
  ```
  git clone git@github.com:mlanca-c/CS50-breakout.git
  cd CS50-breakout
- git checkout breakout-01
+ git checkout breakout-02
  ```
  
 # Compiling
  
  ```
- love breakout-01
+ love breakout-02
  ```
