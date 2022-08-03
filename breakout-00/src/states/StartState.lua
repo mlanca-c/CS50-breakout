@@ -18,6 +18,7 @@ function StartState:update( dt )
 	if love.keyboard.wasPressed( 'up' )
 		or love.keyboard.wasPressed( 'down' ) then
 		highlight = highlight == 1 and 2 or 1
+		gSounds[ 'paddle-hit' ]:play()
 	end
 end
 
