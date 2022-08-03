@@ -17,6 +17,9 @@
 ### breakout-02 "The Bounce Update"
  * breakout-02 uses AABB Collision Detection so that the Ball can bounce when it collides with the Paddle or the walls.
 
+### breakout-03 "The Brick Update"
+ * breakout-03 renders Bricks onto the screen.
+
 # Cloning
 
  ```

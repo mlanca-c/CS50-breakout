@@ -1,4 +1,4 @@
-## breakout-02 "The Bounce Update"
+## breakout-03 "The Brick Update"
 
  <small description of project>
 
@@ -8,18 +8,18 @@
  
 # Documentation
 
- * breakout-02 uses AABB Collision Detection so that the Ball can bounce when it collides with the Paddle or the walls.
+ * breakout-03 renders Bricks onto the screen.
 
 # Cloning
 
  ```
  git clone git@github.com:mlanca-c/CS50-breakout.git
  cd CS50-breakout
- git checkout breakout-01
+ git checkout breakout-03
  ```
  
 # Compiling
  
  ```
- love breakout-01
+ love breakout-03
  ```
