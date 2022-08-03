@@ -1,4 +1,4 @@
-## breakout-01 "The Quad Update"
+## breakout-02 "The Bounce Update"
 
  <small description of project>
 
@@ -8,7 +8,7 @@
  
 # Documentation
 
- * breakout-01 takes advantage of Sprite Sheets in order to render a Paddle sprite during PlayState.
+ * breakout-02 uses AABB Collision Detection so that the Ball can bounce when it collides with the Paddle or the walls.
 
 # Cloning
 
